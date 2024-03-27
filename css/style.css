@@ -37,3 +37,21 @@ body {
   height: 25px;
   margin: 10px 5px 0px 5px;
 }
+
+#buttons, 
+#numbers {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+button {
+  height: 80px;
+  width: 80px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-horizontal {
+  flex-grow: 2;
+}
