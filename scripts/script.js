@@ -35,6 +35,19 @@ function operate(x, y, operator) {
   return result;
 }
 
+function numberInput(btn) {
+  const screen = document.querySelector("#main-screen");
+  const n = btn.innerText;
+
+  if (btn.innerText == "." && screen.textContent.includes(".")) {
+    return;
+  }
+
+  if (screen.textContent.length < 9) {
+    screen.textContent += n;
+  }
+}
+
 function assignNumberButton(btn) {
   btn.addEventListener("click", (b) => numberInput(b.target));
 }
