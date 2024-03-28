@@ -84,3 +84,5 @@ const operators = [
 
 const clearGlobal = document.querySelector("#btn-clear-global");
 const clearEntry = document.querySelector("#btn-clear-entry");
+
+clearEntry.addEventListener("click", () => (screen.textContent = ""));
