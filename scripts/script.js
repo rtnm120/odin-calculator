@@ -72,3 +72,15 @@ const numberButtons = [
 ];
 
 numberButtons.forEach(assignNumberButton);
+
+const operators = [
+  document.querySelector("#btn-percent"),
+  document.querySelector("#btn-divide"),
+  document.querySelector("#btn-multiply"),
+  document.querySelector("#btn-subtract"),
+  document.querySelector("#btn-add"),
+  document.querySelector("#btn-equals"),
+];
+
+const clearGlobal = document.querySelector("#btn-clear-global");
+const clearEntry = document.querySelector("#btn-clear-entry");
