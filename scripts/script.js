@@ -36,14 +36,17 @@ function operate(x, y, operator) {
 }
 
 function numberInput(btn) {
-  const screen = document.querySelector("#main-screen");
   const n = btn.innerText;
 
-  if (btn.innerText == "." && screen.textContent.includes(".")) {
+  if (n == "." && screen.textContent.includes(".")) {
     return;
   }
 
   if (screen.textContent.length < 9) {
+    if (n == "." && screen.textContent.length == 0) {
+      screen.textContent = "0";
+    }
+
     screen.textContent += n;
   }
 }
@@ -51,6 +54,8 @@ function numberInput(btn) {
 function assignNumberButton(btn) {
   btn.addEventListener("click", (b) => numberInput(b.target));
 }
+
+const screen = document.querySelector("#main-screen");
 
 const numberButtons = [
   document.querySelector("#btn-nine"),
