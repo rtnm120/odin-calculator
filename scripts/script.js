@@ -41,12 +41,6 @@ function numberInput(btn) {
   if (n == "." && screen.textContent.includes(".")) {
     return;
   } else if (
-    n == "0" &&
-    screen.textContent[0] == "0" &&
-    screen.textContent[1] != "."
-  ) {
-    return;
-  } else if (
     screen.textContent.length == 1 &&
     screen.textContent == "0" &&
     n != "."
