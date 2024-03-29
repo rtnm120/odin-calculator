@@ -45,6 +45,12 @@ function numberInput(btn) {
   if (screen.textContent.length < 9) {
     if (n == "." && screen.textContent.length == 0) {
       screen.textContent = "0";
+    } else if (
+      n == "0" &&
+      screen.textContent[0] == "0" &&
+      screen.textContent[1] != "."
+    ) {
+      return;
     }
 
     screen.textContent += n;
