@@ -87,6 +87,39 @@ function assignNumberButton(btn) {
   btn.addEventListener("click", (b) => numberInput(b.target));
 }
 
+function addToExpression(operator) {
+  const input = screen.textContent;
+
+  if (operator == "Enter") {
+    operator = "=";
+  }
+  
+  if (expression.wasOperatorLast) {
+    expression.operator = operator;
+    return;
+  } else {
+    expression.wasOperatorLast = true;
+  }
+
+  if (!expression.total) {
+    expression.total = input;
+    expression.operator = operator;
+    return;
+  }
+
+  expression.constant = input;
+  expression.total = operate(expression.total, expression.constant, expression.operator);
+  expression.operator = operator;
+
+  if (operator == "=") {
+    screen.textContent = `${expression.total}`;
+  }
+}
+
+function assignOperator(btn) {
+  btn.addEventListener("click", (b) => addToExpression((b.target).innerText));
+}
+
 const screen = document.querySelector("#main-screen");
 
 const numberButtons = [
@@ -113,6 +146,8 @@ const operators = [
   document.querySelector("#btn-add"),
   document.querySelector("#btn-equals"),
 ];
+
+operators.forEach(assignOperator);
 
 const clearGlobal = document.querySelector("#btn-clear-global");
 const clearEntry = document.querySelector("#btn-clear-entry");
