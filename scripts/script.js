@@ -54,20 +54,24 @@ function operate(x, y, operator) {
 }
 
 function numberInput(btn) {
-  const n = btn.innerText;
+  const constant = btn;
+  if (expression.wasOperatorLast) {
+    screen.textContent = "";
+    expression.wasOperatorLast = false;
+  }
 
-  if (n == "." && screen.textContent.includes(".")) {
+  if (constant == "." && screen.textContent.includes(".")) {
     return;
   } else if (
     screen.textContent.length == 1 &&
     screen.textContent == "0" &&
-    n != "."
+    constant != "."
   ) {
     screen.textContent = "";
   }
 
-  if (screen.textContent.length < 9) {
-    if (n == "." && screen.textContent.length == 0) {
+  if (screen.textContent.length < 9 && !screen.textContent.includes("%")) {
+    if (constant == "." && screen.textContent.length == 0) {
       screen.textContent = "0";
     }
 
@@ -110,3 +114,5 @@ const clearGlobal = document.querySelector("#btn-clear-global");
 const clearEntry = document.querySelector("#btn-clear-entry");
 
 clearEntry.addEventListener("click", () => (screen.textContent = ""));
+
+const expression = {};
