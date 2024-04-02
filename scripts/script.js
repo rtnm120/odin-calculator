@@ -120,6 +120,14 @@ function assignOperator(btn) {
   btn.addEventListener("click", (b) => addToExpression((b.target).innerText));
 }
 
+function clearHistory() {
+  for (let key in expression) {
+    delete expression[`${key}`];
+  }
+
+  screen.textContent = "0";
+}
+
 const screen = document.querySelector("#main-screen");
 
 const numberButtons = [
@@ -152,6 +160,7 @@ operators.forEach(assignOperator);
 const clearGlobal = document.querySelector("#btn-clear-global");
 const clearEntry = document.querySelector("#btn-clear-entry");
 
+clearGlobal.addEventListener("click", clearHistory);
 clearEntry.addEventListener("click", () => (screen.textContent = ""));
 
 const expression = {};
