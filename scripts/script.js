@@ -70,6 +70,10 @@ function numberInput(btn) {
     screen.textContent = "";
   }
 
+  if ((constant == "%" && screen.textContent.includes("%")) || (constant == "%" && screen.textContent.length == 0)) {
+    return;
+  }
+
   if (screen.textContent.length < 9 && !screen.textContent.includes("%")) {
     if (constant == "." && screen.textContent.length == 0) {
       screen.textContent = "0";
