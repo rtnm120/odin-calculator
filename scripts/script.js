@@ -128,6 +128,30 @@ function clearHistory() {
   screen.textContent = "0";
 }
 
+function keyInput(btn) {
+  const key = btn.key;
+  const numberList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", "%"];
+  const operatorList = {
+    "+": "+",
+    "-": "−",
+    "*": "×",
+    "/": "÷",
+    "=": "=",
+    "Enter": "=",
+  }
+
+  if (numberList.includes(key)) {
+    numberInput(key);
+  } else if (operatorList.hasOwnProperty(key)) {
+    addToExpression(operatorList[`${key}`]);
+  } else if (key == "Backspace") {
+    screen.textContent = "0";
+  } else if (key == "Delete") {
+    clearHistory();
+  }
+}
+
+
 const screen = document.querySelector("#main-screen");
 screen.textContent = "0";
 
@@ -165,3 +189,5 @@ clearGlobal.addEventListener("click", clearHistory);
 clearEntry.addEventListener("click", () => (screen.textContent = "0"));
 
 const expression = {};
+
+window.addEventListener("keyup", b => keyInput(b));
