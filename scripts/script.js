@@ -129,6 +129,7 @@ function clearHistory() {
 }
 
 const screen = document.querySelector("#main-screen");
+screen.textContent = "0";
 
 const numberButtons = [
   document.querySelector("#btn-nine"),
@@ -161,6 +162,6 @@ const clearGlobal = document.querySelector("#btn-clear-global");
 const clearEntry = document.querySelector("#btn-clear-entry");
 
 clearGlobal.addEventListener("click", clearHistory);
-clearEntry.addEventListener("click", () => (screen.textContent = ""));
+clearEntry.addEventListener("click", () => (screen.textContent = "0"));
 
 const expression = {};
