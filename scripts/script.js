@@ -14,20 +14,38 @@ function divide(x, y) {
   return x / y;
 }
 
+function percentage(total, percentage) {
+  switch (expression.operator) {
+    case "+":
+    case "−":
+      return total * percentage / 100;
+    case "×":
+    case "÷":
+      return percentage / 100;
+  }
+}
+
 function operate(x, y, operator) {
+  if (y.includes("%")) {
+    percent = Number.isInteger(y) ? parseInt(y) : parseFloat(y);
+    y = percentage(x, percent);
+  }
+
+  x = Number.isInteger(x) ? parseInt(x) : parseFloat(x);
+  y = Number.isInteger(y) ? parseInt(y) : parseFloat(y);
   let result;
 
   switch (operator) {
     case "+":
       result = add(x, y);
       break;
-    case "-":
+    case "−":
       result = subtract(x, y);
       break;
-    case "*":
+    case "×":
       result = multiply(x, y);
       break;
-    case "/":
+    case "÷":
       result = divide(x, y);
       break;
   }
@@ -75,14 +93,14 @@ const numberButtons = [
   document.querySelector("#btn-one"),
   document.querySelector("#btn-zero"),
   document.querySelector("#btn-decimal"),
+  document.querySelector("#btn-percent"),
 ];
 
 numberButtons.forEach(assignNumberButton);
 
-const operators = [
-  document.querySelector("#btn-percent"),
+const operators = [  
   document.querySelector("#btn-divide"),
-  document.querySelector("#btn-multiply"),
+  document.querySelector("#btn-multply"),
   document.querySelector("#btn-subtract"),
   document.querySelector("#btn-add"),
   document.querySelector("#btn-equals"),
