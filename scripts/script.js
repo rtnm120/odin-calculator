@@ -79,7 +79,7 @@ function numberInput(btn) {
       screen.textContent = "0";
     }
 
-    screen.textContent += n;
+    screen.textContent += constant;
   }
 }
 
