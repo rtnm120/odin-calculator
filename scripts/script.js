@@ -84,7 +84,7 @@ function numberInput(btn) {
 }
 
 function assignNumberButton(btn) {
-  btn.addEventListener("click", (b) => numberInput(b.target));
+  btn.addEventListener("click", (b) => numberInput((b.target).innerText));
 }
 
 function addToExpression(operator) {
