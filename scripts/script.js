@@ -157,7 +157,7 @@ function screenOutput(total) {
   } else if (!Number.isInteger(total) && total.toString().length > 9 && total > 999999999) {
     screen.textContent = total.toPrecision(3);
   } else if (!Number.isInteger(total)) {
-    screen.textContent = total.toPrecision(8); 
+    screen.textContent = parseFloat(total.toPrecision(8)); 
   } else {
     screen.textContent = total;
   }
