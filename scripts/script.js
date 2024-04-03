@@ -112,7 +112,7 @@ function addToExpression(operator) {
   expression.operator = operator;
 
   if (operator == "=") {
-    screen.textContent = `${expression.total}`;
+    screenOutput(expression.total);
   }
 }
 
@@ -148,6 +148,18 @@ function keyInput(btn) {
     screen.textContent = "0";
   } else if (key == "Delete") {
     clearHistory();
+  }
+}
+
+function screenOutput(total) {
+  if (Number.isInteger(total) && total > 999999999) {
+    screen.textContent = total.toPrecision(3);
+  } else if (!Number.isInteger(total) && total.toString().length > 9 && total > 999999999) {
+    screen.textContent = total.toPrecision(3);
+  } else if (!Number.isInteger(total)) {
+    screen.textContent = total.toPrecision(8); 
+  } else {
+    screen.textContent = total;
   }
 }
 
