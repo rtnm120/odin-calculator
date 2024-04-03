@@ -46,6 +46,11 @@ function operate(x, y, operator) {
       result = multiply(x, y);
       break;
     case "÷":
+      if (y == 0) {
+        screen.textContent = "GOOD TRY";
+        result = x;
+        break;
+      }
       result = divide(x, y);
       break;
   }
